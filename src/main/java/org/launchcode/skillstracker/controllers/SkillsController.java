@@ -31,26 +31,26 @@ public class SkillsController {
     public String skillsForm() {
         return "<html>" +
                 "<body>" +
-                "<form action ='favorite' method='POST'>" +
+                "<form action ='favorites' method='POST'>" +
                 "<label>Name<br>" +
                 "<input type='text' name='name'>" +
                 "</label><br>" +
-                "<label>My favorite language:<br>" +
-                "<select name='language1' id='language'>" +
+                "<label>My favorite languages:<br>" +
+                "<select name='language1'>" +
                 "<option value='JavaScript'>JavaScript</option>" +
                 "<option value='Java'>Java</option>" +
                 "<option value='Python'>Python</option>" +
                 "</select>" +
                 "</label></br>" +
                 "<label>My second favorite language:<br>" +
-                "<select name='language1' id='language'>" +
+                "<select name='language2'>" +
                 "<option value='JavaScript'>JavaScript</option>" +
                 "<option value='Java'>Java</option>" +
                 "<option value='Python'>Python</option>" +
                 "</select>" +
                 "</label></br>" +
                 "<label>My third favorite language:<br>" +
-                "<select name='language1' id='language'>" +
+                "<select name='language3'>" +
                 "<option value='JavaScript'>JavaScript</option>" +
                 "<option value='Java'>Java</option>" +
                 "<option value='Python'>Python</option>" +
@@ -63,7 +63,7 @@ public class SkillsController {
     }
 
     // lives at localhost:8080/form
-    @PostMapping("form")
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "favorites")
     public String favoriteLanguages(@RequestParam String name, @RequestParam String language1, @RequestParam String language2, @RequestParam String language3) {
         return "<html>" +
                 "<body>" +
@@ -76,6 +76,5 @@ public class SkillsController {
                 "</body>" +
                 "</html>";
     }
-
 
 }
